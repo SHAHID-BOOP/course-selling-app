@@ -5,6 +5,7 @@ const {  courseRouter } = require("./routes/course");
 const {  userRouter } = require("./routes/user");
 const { adminRouter } = require("./routes/admin");
 const app = express();
+app.use(express.json());
 
 
 app.use("/api/v1/user", userRouter);
