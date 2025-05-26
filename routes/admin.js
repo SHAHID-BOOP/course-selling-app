@@ -86,17 +86,17 @@ adminRouter.put("/course", adminMiddleware,  async function(req,res) {
 
 });
 
-adminRouter.get("/course/bulk", adminMiddleware,  function(req,res) {
+adminRouter.get("/course/bulk", adminMiddleware, async function(req,res) {
   const adminId = req.userId;
 
-  const courses = courseModal.find({
+  const courses = await courseModal.find({
     creatorId: adminId
   });
 
 
   res.json({
     message: "course updated",
-    courses
+    courses: courses
   })
 });
 
