@@ -4,7 +4,7 @@ const { purchaseModal, courseModal } = require("../db");
 const courseRouter = Router();
  
 
-courseRouter.post("/purchases", userMiddleware, async  function(req,res) {
+courseRouter.post("/purchases", userMiddleware, async function(req,res) {
   const userId = req.userId;
   const courseId = req.body.courseId;
 
@@ -20,7 +20,7 @@ courseRouter.post("/purchases", userMiddleware, async  function(req,res) {
 
 courseRouter.get("/preview",async  function(req,res) {
   const courses = await courseModal.find({})
-  
+
   res.json({
     courses
   })
